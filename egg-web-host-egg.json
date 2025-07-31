@@ -10,7 +10,7 @@
     "description": "Introducing a versatile hosting solution for any website!\r\n\r\nWith built-in Composer support, simply specify the packages you need in the \u201cPackages\u201d box, and they\u2019ll be installed automatically when the server starts. Want to set up WordPress? Just toggle the WordPress slider during server setup, and WordPress will be ready to go in moments.\r\n\r\nSupport for Pelican panel & Pterodactyl!\r\n\r\n\u00a9 Sigma Productions 2025",
     "features": null,
     "docker_images": {
-        "PHP 8.4": "ghcr.io\/cryptdev-gh/nginx-ptero:8.1",
+        "PHP 8.4": "ghcr.io\/cryptdev-gh/nginx-ptero:8.1"
     },
     "file_denylist": [],
     "startup": "{{STARTUP_CMD}} && if [[ -n \"${COMPOSER_MODULES}\" ]]; then composer require \"${COMPOSER_MODULES}\" --working-dir=\/home\/container\/webroot; fi",
