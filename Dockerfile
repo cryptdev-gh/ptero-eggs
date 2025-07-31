@@ -1,8 +1,7 @@
 FROM php:8.1-fpm
 
-RUN apt-get update && apt-get install -y nginx unzip zip libzip-dev libpq-dev libsqlite3-dev
-
-RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql pdo_sqlite zip
+RUN apt-get update && apt-get install -y nginx unzip zip libzip-dev libpq-dev libsqlite3-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql pdo_sqlite zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -21,4 +20,4 @@ RUN chmod +x /entrypoint.sh
 
 USER container
 
-CMD ["php-fpm"]
+CMD ["/entrypoint.sh"]
